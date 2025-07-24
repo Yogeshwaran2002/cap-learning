@@ -10,9 +10,12 @@
     "@sap-cloud-sdk/http-client": "^4.1.0",
     "@sap-cloud-sdk/util": "^4.1.0",
     "@sap/cds": "^9",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
     "@sap/low-code-event-handler": "^1.2.5",
     "@sap/xsenv": ">=3.3.2 <3.3.3",
     "@sap/xssec": "^4.9.0",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0",
     "express": "^4",
     "hdb": "^2.25.1",
     "passport": "^0.7.0"
@@ -23,13 +26,15 @@
   "devDependencies": {
     "@cap-js/cds-types": "^0.13.0",
     "@cap-js/sqlite": "^2",
-    "@sap/dev-cap-tools": "^1.31.0"
+    "@sap/dev-cap-tools": "^1.31.0",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
     "start": "cds-serve",
     "start-local": "npm run generate-entry-point && npm run cds-watch",
     "generate-entry-point": "dev-cap-tools gen-entrypoint",
-    "cds-watch": "cds watch --open"
+    "cds-watch": "cds watch --open",
+    "watch-fe-bookshop": "cds watch --open febookshop/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {
@@ -47,5 +52,11 @@
       }
     }
   },
-  "lcap": true
+  "lcap": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/fe-bookshop"
+  ]
 }
